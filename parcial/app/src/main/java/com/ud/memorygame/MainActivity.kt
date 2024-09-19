@@ -7,9 +7,8 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
-    private lateinit var btnLow: Button
-    private lateinit var btnMedium: Button
-    private lateinit var btnHard: Button
+    private lateinit var btnBuscar: Button
+    private lateinit var btnAgregar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,29 +18,25 @@ class MainActivity : ComponentActivity() {
     }
 
     fun addLogicToBtns(){
-        btnLow = findViewById(R.id.btnLow)
-        btnMedium = findViewById(R.id.btnMedium)
-        btnHard = findViewById(R.id.btnHard)
+        btnBuscar = findViewById(R.id.btnBuscar)
+        btnAgregar = findViewById(R.id.btnAgregar)
 
-        btnLow.setOnClickListener {
-            Toast.makeText(this, "Clic in btn Low", Toast.LENGTH_LONG).show()
-            goToGame("L")
+        btnBuscar.setOnClickListener {
+            Toast.makeText(this, "Click in btn Buscar", Toast.LENGTH_LONG).show()
+            goToScreen("Buscar")
         }
 
-        btnMedium.setOnClickListener{
-            Toast.makeText(this, "Clic in btn Medium", Toast.LENGTH_LONG).show()
-            goToGame("M")
+        btnAgregar.setOnClickListener{
+            Toast.makeText(this, "Click in btn Agregar", Toast.LENGTH_LONG).show()
+            goToScreen("Agregar")
         }
 
-        btnHard.setOnClickListener{
-            Toast.makeText(this, "Clic in btn Hard", Toast.LENGTH_LONG).show()
-            goToGame("H")
-        }
+
     }
 
-    fun goToGame(level: String){
-        var intent = Intent(this, GameActivity::class.java)
-        intent.putExtra("level", level)
+    fun goToScreen(Boton: String){
+        val intent = Intent(this, GameActivity::class.java)
+        intent.putExtra("boton", Boton)
         startActivity(intent)
     }
 }
