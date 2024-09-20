@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         btnAgregar = findViewById(R.id.btnAgregar)
 
         btnBuscar.setOnClickListener {
-            Toast.makeText(this, "Click in btn Buscar  ", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Click in btn Buscar   ", Toast.LENGTH_LONG).show()
             goToScreen("Buscar")
         }
 
