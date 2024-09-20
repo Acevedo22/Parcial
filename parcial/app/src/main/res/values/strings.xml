@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">MemoryGame</string>
-
-    <string name="activity_main_title">Mis Viajes</string>
-
-    <string name="activity_main_txt_level">Choose a level: </string>
-    <string name="activity_main_btn_buscar">Buscar</string>
-    <string name="activity_main_btn_agregar">Agregar</string>
-</resources>
