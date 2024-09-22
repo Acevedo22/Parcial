@@ -15,62 +15,57 @@ import java.util.stream.Collectors
 
 class ListViajesAdapters(private val listaViajes: ArrayList<Viajes>) : RecyclerView.Adapter<ListViajesAdapters.ViajesViewHolder>() {
 
-    // VideoS
+    // Mantiene una copia original de la lista de viajes
     private val listaOriginal: ArrayList<Viajes> = ArrayList(listaViajes)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViajesViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.list_item_verb, parent, false)
+        // Inflar el layout del ítem de la lista
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_verb, parent, false)
         return ViajesViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViajesViewHolder, position: Int) {
+        // Asignar el destino al TextView
         val viaje = listaViajes[position]
-
-        holder.viewViaje .text = viaje.Destino
-        /*       holder.viewInd_Yo.text = verb.Ind_Yo
-               holder.viewInd_Tu.text = verb.Ind_Tu
-               holder.viewInd_El_Ella_Usted.text = verb.Ind_El_Ella_Usted
-               holder.viewInd_Nosotros.text = verb.Ind_Nosotros
-               holder.viewInd_Vosotros.text = verb.Ind_Vosotros
-               holder.viewInd_Ellos.text = verb.Ind_Ellos
-               holder.viewImp_Tu.text = verb.Imp_Tu
-               holder.viewImp_Nosotros.text = verb.Imp_Nosotros
-               holder.viewImp_Ellos_Ellas_Ustedes.text = verb.Imp_Ellos_Ellas_Ustedes*/
+        holder.viewViaje.text = viaje.Destino
     }
 
+    // Filtrar los viajes por texto ingresado
     fun filtrado(txtBuscar: String) {
-        val longitud = txtBuscar.length
-        if (txtBuscar.length == 0) {
+        if (txtBuscar.isEmpty()) {
+            // Restaurar la lista original si el campo de búsqueda está vacío
             listaViajes.clear()
             listaViajes.addAll(listaOriginal)
         } else {
-            val collection: MutableList<Viajes>? = listaViajes.stream()
+            // Filtrar la lista de viajes
+            val collection: MutableList<Viajes>? = listaOriginal.stream()
                 .filter { i -> i.Destino!!.toLowerCase().contains(txtBuscar.toLowerCase()) }
                 .collect(Collectors.toList())
+
             listaViajes.clear()
             if (collection != null) {
                 listaViajes.addAll(collection)
             }
         }
-        notifyDataSetChanged()
+        notifyDataSetChanged() // Notificar al adaptador que la lista ha cambiado
     }
 
     override fun getItemCount(): Int {
-        return listaViajes.size
+        return listaViajes.size // Retornar el tamaño actual de la lista
     }
+
     inner class ViajesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        // Referencia al TextView que muestra el destino
         val viewViaje: TextView = itemView.findViewById(R.id.viewViaje)
 
-
         init {
+            // Configuración del click listener para abrir la actividad `ShowActivity`
             itemView.setOnClickListener {
                 val context: Context = itemView.context
                 val intent = Intent(context, ShowActivity::class.java)
-                intent.putExtra("ID", listaViajes[adapterPosition].id)
-                context.startActivity(intent)
+                intent.putExtra("ID", listaViajes[adapterPosition].id) // Pasar el ID del viaje
+                context.startActivity(intent) // Iniciar la actividad
             }
         }
-}
-
+    }
 }
