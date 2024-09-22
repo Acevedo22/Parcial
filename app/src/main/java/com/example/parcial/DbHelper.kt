@@ -1,18 +1,26 @@
-package com.example.parcial.ui.theme.bd
+package com.example.parcial
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-public class bdHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NOMBRE, null, DATABASE_VERSION) {
+public open class DbHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NOMBRE, null, DATABASE_VERSION) {
+    companion object {
+        private const val DATABASE_VERSION = 2
+        private const val DATABASE_NOMBRE = "viajes.db"
+        const val TABLE_VIAJES = "t_viajes"
+    }
 
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
         sqLiteDatabase.execSQL(
             "CREATE TABLE $TABLE_VIAJES (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "destino TEXT NOT NULL," +
-                    "fecha_inicio DATETIME NOT NULL," +
-                    "fecha_fin DATETIME)"
+                    "fecha_inicio TEXT NOT NULL," +
+                    "fecha_fin TEXT NOT NULL," +
+                    "lugares TEXT NOT NULL," +
+                    "Actividades TEXT NOT NULL)"
+
         )
     }
 
@@ -21,9 +29,5 @@ public class bdHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NO
         onCreate(sqLiteDatabase)
     }
 
-    companion object {
-        private const val DATABASE_VERSION = 2
-        private const val DATABASE_NOMBRE = "viajes.db"
-        const val TABLE_VIAJES = "t_viajes"
-    }
+
 }
