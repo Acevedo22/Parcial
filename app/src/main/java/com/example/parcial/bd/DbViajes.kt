@@ -9,13 +9,14 @@ import com.example.parcial.entidades.Viajes
 import java.util.ArrayList
 
 class DbViajes(@Nullable context: Context?) : DbHelper(context) {
+
     private val context: Context
 
     init {
         this.context = context!!
     }
 
-    fun insertarViaje(destino: String, fechaInicio: String, fechaFin: String, lugares: String, actividades :String): Long {
+    fun insertarViaje(destino: String, fecha_inicio: String, fecha_fin: String, lugares: String, Actividades :String): Long {
         var id: Long = 0
         try {
             val dbHelper = DbHelper(context)
@@ -23,10 +24,10 @@ class DbViajes(@Nullable context: Context?) : DbHelper(context) {
 
             val values = ContentValues()
             values.put("destino", destino)
-            values.put("fecha de inicio", fechaInicio)
-            values.put("fecha de fin", fechaFin)
+            values.put("fecha_inicio", fecha_inicio)
+            values.put("fecha_fin", fecha_fin)
             values.put("lugares", lugares)
-            values.put("Actividades", actividades)
+            values.put("Actividades", Actividades)
 
             id = db.insert(TABLE_VIAJES, null, values)
         } catch (ex: Exception) {
@@ -37,13 +38,14 @@ class DbViajes(@Nullable context: Context?) : DbHelper(context) {
 
     fun showViajes(): ArrayList<Viajes> {
         val dbHelper = DbHelper(context)
-        val db = dbHelper.getWritableDatabase()
+        val db = dbHelper.writableDatabase
 
-        val listaViajes = java.util.ArrayList<Viajes>()
+      val listaViajes = java.util.ArrayList<Viajes>()
         var viaje: Viajes?
         var cursorViajes: Cursor? = null
 
-        cursorViajes = db.rawQuery("SELECT * FROM $TABLE_VIAJES", null)
+
+        cursorViajes = db.rawQuery("SELECT * FROM $TABLE_VIAJES ",null)
 
         if (cursorViajes.moveToFirst()) {
             do{
@@ -67,6 +69,7 @@ class DbViajes(@Nullable context: Context?) : DbHelper(context) {
 
             var viaje: Viajes? = null
             var cursorViajes: Cursor? = null
+
             cursorViajes = db.rawQuery("SELECT * FROM $TABLE_VIAJES WHERE id = $id LIMIT 1", null)
 
             if (cursorViajes.moveToFirst()) {

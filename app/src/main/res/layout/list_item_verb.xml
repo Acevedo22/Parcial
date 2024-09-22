@@ -18,12 +18,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="Destino:"
-            android:textColor="#617A55"
+            android:textColor="@color/purple_500"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/viewVerbo"
+            android:id="@+id/viewViaje"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"

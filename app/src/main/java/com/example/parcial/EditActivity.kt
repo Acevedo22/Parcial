@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.parcial.R.id
+import android.text.InputType
+import android.view.View
 import com.example.parcial.bd.DbViajes
 import com.example.parcial.entidades.Viajes
 

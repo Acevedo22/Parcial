@@ -12,8 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.parcial.bd.DbViajes
 import com.example.parcial.entidades.Viajes
 
-class ShowActivity  : AppCompatActivity (){
-    class ShowActivity : AppCompatActivity() {
+ class ShowActivity : AppCompatActivity() {
 
         private lateinit var txtDestino: TextView
         private lateinit var txtFechaInicio: TextView
@@ -101,4 +100,4 @@ class ShowActivity  : AppCompatActivity (){
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-    }}
+    }

@@ -93,8 +93,9 @@
                 android:layout_height="wrap_content"
                 android:text="Actividades"
                 android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textColor="@color/purple_500"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtActividades"
@@ -117,8 +118,9 @@
                 android:layout_height="wrap_content"
                 android:text="Lugares"
                 android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textColor="@color/purple_500"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtLugares"
@@ -161,13 +163,14 @@
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="match_parent"
-                android:layout_height="107dp"
+                android:layout_height="55dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
-                android:background="@color/teal_200"
+                android:background="@color/purple_500"
                 android:text="Guardar"
-                android:textColor="#757575" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

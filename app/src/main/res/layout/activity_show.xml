@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Destino:"
-            android:textColor="@color/black"
+            android:textColor="@color/purple_500"
             android:textSize="24dp"
             android:textStyle="bold" />
 
@@ -22,24 +22,32 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
+            android:layout_marginLeft="125dp"
+            android:layout_weight="1"
             android:text="Información"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/purple_500"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     </TableRow>
+
+    <TableRow
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
 
     <TableRow>
 
@@ -47,9 +55,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Fecha de inicio"
+            android:text="Fecha de inicio:"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtFechaInicio"
@@ -68,7 +77,8 @@
             android:layout_weight="1"
             android:text="Fecha de finalización:"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtFechaFin"
@@ -86,7 +96,8 @@
             android:layout_weight="1"
             android:text="Lugares:"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtLugares"
@@ -96,7 +107,10 @@
             android:textColor="@color/black"
             android:textSize="18dp"/>
     </TableRow>
-    <TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="0dp"
@@ -104,7 +118,8 @@
             android:layout_weight="1"
             android:text="Actividades:"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtActividades"
@@ -112,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@color/black"
-            android:textSize="18dp"/>
+            android:textSize="18dp" />
     </TableRow>
 
     <TableRow/>
@@ -131,18 +146,20 @@
         android:layout_marginRight="30dp"
         android:background="@color/black"
         android:text="Editar"
-        android:textColor="#757575" />
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btngoToDelete"
         android:layout_width="match_parent"
-        android:layout_height="33dp"
+        android:layout_height="47dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:background="@color/black"
         android:text="Eliminar"
-        android:textColor="#757575" />
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
 
 </TableLayout>

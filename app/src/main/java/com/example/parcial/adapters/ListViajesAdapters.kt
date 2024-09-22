@@ -11,23 +11,23 @@ import com.example.parcial.R
 import com.example.parcial.ShowActivity
 import com.example.parcial.entidades.Viajes
 import java.util.ArrayList
-import java.util.List
 import java.util.stream.Collectors
 
-class ListViajesAdapters(private val listaViajes: ArrayList<Viajes>) : RecyclerView.Adapter<ListViajesAdapters.VerbsViewHolder>() {
+class ListViajesAdapters(private val listaViajes: ArrayList<Viajes>) : RecyclerView.Adapter<ListViajesAdapters.ViajesViewHolder>() {
 
     // VideoS
     private val listaOriginal: ArrayList<Viajes> = ArrayList(listaViajes)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VerbsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViajesViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.list_item_verb, parent, false)
-        return VerbsViewHolder(view)
+        return ViajesViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: VerbsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViajesViewHolder, position: Int) {
         val viaje = listaViajes[position]
-        holder.viewVerbo .text = viaje.Destino
+
+        holder.viewViaje .text = viaje.Destino
         /*       holder.viewInd_Yo.text = verb.Ind_Yo
                holder.viewInd_Tu.text = verb.Ind_Tu
                holder.viewInd_El_Ella_Usted.text = verb.Ind_El_Ella_Usted
@@ -59,8 +59,8 @@ class ListViajesAdapters(private val listaViajes: ArrayList<Viajes>) : RecyclerV
     override fun getItemCount(): Int {
         return listaViajes.size
     }
-    inner class VerbsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val viewVerbo: TextView = itemView.findViewById(R.id.viewVerbo)
+    inner class ViajesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val viewViaje: TextView = itemView.findViewById(R.id.viewViaje)
 
 
         init {
