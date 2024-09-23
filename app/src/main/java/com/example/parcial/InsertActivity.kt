@@ -74,9 +74,10 @@ class InsertActivity : AppCompatActivity() {
 
     // Validar texto utilizando expresiones regulares
     private fun isValidText(text: String): Boolean {
-        // La expresión regular permite letras, números y espacios
-        val pattern = Regex("^[a-zA-ZáéíóúñÁÉÍÓÚÑ0-9\\s]+$")
+        // La expresión regular permite letras, números, espacios, comas, puntos y /
+        val pattern = Regex("^[a-zA-ZáéíóúñÁÉÍÓÚÑ0-9\\s,./-ñÑ]+$")
         return text.isNotBlank() && pattern.matches(text)
     }
+
 
 }
