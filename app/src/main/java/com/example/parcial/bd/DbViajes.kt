@@ -3,9 +3,13 @@ package com.example.parcial.bd
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
+import android.os.Build
 import androidx.annotation.Nullable
+import androidx.annotation.RequiresApi
 import com.example.parcial.DbHelper
 import com.example.parcial.entidades.Viajes
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.ArrayList
 
 class DbViajes(@Nullable context: Context?) : DbHelper(context) {
@@ -14,6 +18,7 @@ class DbViajes(@Nullable context: Context?) : DbHelper(context) {
     private val context: Context = context!!
 
     // Insertar un nuevo viaje en la base de datos
+    @RequiresApi(Build.VERSION_CODES.O)
     fun insertarViaje(destino: String, fecha_inicio: String, fecha_fin: String, lugares: String, actividades: String): Long {
         var id: Long = 0
         try {

@@ -21,8 +21,8 @@ public open class DbHelper(context: Context?) : SQLiteOpenHelper(context, DATABA
             "CREATE TABLE $TABLE_VIAJES (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," + // Columna ID autoincremental
                     "destino TEXT NOT NULL," + // Columna destino
-                    "fecha_inicio TEXT NOT NULL," + // Columna fecha de inicio
-                    "fecha_fin TEXT NOT NULL," + // Columna fecha de fin
+                    "fecha_inicio DATE NOT NULL," + // Columna fecha de inicio
+                    "fecha_fin DATE NOT NULL," + // Columna fecha de fin
                     "lugares TEXT NOT NULL," + // Columna lugares
                     "Actividades TEXT NOT NULL)" // Columna actividades
         )

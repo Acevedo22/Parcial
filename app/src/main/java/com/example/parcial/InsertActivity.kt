@@ -1,11 +1,16 @@
 package com.example.parcial
 
+import android.icu.util.LocaleData
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.parcial.bd.DbViajes
+import java.time.LocalDate
+import java.time.format.DateTimeParseException
 
 class InsertActivity : AppCompatActivity() {
 
@@ -17,6 +22,7 @@ class InsertActivity : AppCompatActivity() {
     private lateinit var text4: EditText
     private lateinit var btnSave: Button
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insert)
@@ -68,7 +74,9 @@ class InsertActivity : AppCompatActivity() {
 
     // Validar texto utilizando expresiones regulares
     private fun isValidText(text: String): Boolean {
-        val pattern = Regex("^[a-zA-ZáéíóúñÁÉÍÓÚÑ]+$")
+        // La expresión regular permite letras, números y espacios
+        val pattern = Regex("^[a-zA-ZáéíóúñÁÉÍÓÚÑ0-9\\s]+$")
         return text.isNotBlank() && pattern.matches(text)
     }
+
 }
